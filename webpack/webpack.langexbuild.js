@@ -10,13 +10,13 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 const plugins = [
     new MiniCssExtractPlugin({filename: 'styles/converse.min.css'}),
-    new MiniCssExtractPlugin({filename: 'styles/converse.css'}),
     new CopyWebpackPlugin({
         patterns: [
             {from: 'node_modules/strophe.js/src/shared-connection-worker.js', to: 'scripts/shared-connection-worker.js'},
             {from: 'sounds', to: 'assets/sounds'},
             {from: 'images/favicon.ico', to: 'assets/images/favicon.ico'},
             {from: 'images/custom_emojis', to: 'assets/images/custom_emojis'},
+            {from: 'images/logo.png', to: 'images/logo.png'},
             {from: 'logo/conversejs-filled-192.png', to: 'assets/images/logo'},
             {from: 'logo/conversejs-filled-512.png', to: 'assets/images/logo'},
             {from: 'logo/conversejs-filled-192.svg', to: 'assets/images/logo'},
@@ -74,7 +74,10 @@ module.exports = merge(common, {
                     }
                 },
             ]
-        },
+        }, {
+          test: /\.css$/,
+          use: [MiniCssExtractPlugin.loader, 'css-loader'],
+        }
       ]
     }
 });

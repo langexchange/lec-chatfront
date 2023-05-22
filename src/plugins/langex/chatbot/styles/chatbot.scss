@@ -26,12 +26,12 @@ langex-chatbotmsg {
 }
 
 langex-chatbot-para:not(:last-child) {
-  margin-bottom: 1em;
+  margin-bottom: 3px;
 }
 
 langex-chatbot-para score{
   display: inline-block;
-  padding: 0 10px;
+  padding: 0 7px;
   color: white;
   font-weight: 700;
   border-radius: 5px;
@@ -41,5 +41,67 @@ langex-chatbot-para score{
 assess-language {
   display: inline-flex;
   gap: 3px;
+  .fi-vn{
+    width: 1.7em;
+  }
 }
 
+langex-chatbot-features{
+  padding-left: 2em;
+}
+
+langex-icon img{
+  height: 1.5em;
+  display: inline-block;
+  vertical-align: middle !important;
+}
+
+langex-chatbot-feature{
+  display: flex;
+  flex-direction: column;
+  > *:not(:last-child) {
+    margin-bottom: 1.5px; /* Adjust the desired margin-bottom value */
+  }
+  feature-name{
+    font-weight: 700;
+    position: relative;
+    &::before, &::after{
+      content: ""; /* Unicode character for bullet point */
+      display: inline-block;
+      border-radius: 100%;
+      position: absolute;
+      
+       /* Adjust the spacing between the bullet point and the element */
+      /* Customize the bullet point color if desired */
+    }
+
+    &::before{
+      width: 5px;
+      top: 5px;
+      left: -9px;
+      height: 5px;
+      background-color: #AB121C; 
+      z-index: 2;
+    }
+    &::after {
+      top: 1px;
+      left: -13px;
+      width: 13px;
+      height: 13px;
+      border: 2px solid #0097DA;  
+      // background-color: #0097DA; 
+    }
+  }
+}
+langex-chatbot-command{
+  color: #0097DA;
+  font-weight: 600;
+}
+
+langex-chatbot-title{
+  font-weight: 700;
+}
+
+recording-icon converse-icon svg{
+  margin-bottom: 3px;
+}

@@ -42,6 +42,7 @@ import "./plugins/fullscreen/index.js";
 /* LANGEXCHANGE PLUGINS */
 import "./plugins/langex/correctview/index.js";
 import "./plugins/langex/chatbot/index.js";
+import "/node_modules/flag-icons/css/flag-icons.min.css";
 
 _converse.CustomElement = CustomElement;
 
