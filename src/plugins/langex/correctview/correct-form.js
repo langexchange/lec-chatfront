@@ -174,6 +174,7 @@ export default class CorrectFormView extends ElementView {
     onCloseButton(){
       this.style.display = "none";
     }
+    
 
 
     async onFormSubmitted (ev) {
@@ -223,6 +224,8 @@ export default class CorrectFormView extends ElementView {
         // immediately after the message, causing rate-limiting issues.
         this.model.setChatState(_converse.ACTIVE, { 'silent': true });
         textarea.focus();
+
+        this.style.display = "none";
     }
 }
 

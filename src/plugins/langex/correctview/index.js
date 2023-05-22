@@ -24,7 +24,7 @@ export const diffText = (original, corrected) => {
   let fragment = document.createDocumentFragment();
 
   diff.forEach((part) => {
-    const color = part.added ? '#53c51a' : part.removed ? '#ff4d4f' : 'black';
+    const color = part.added ? '#53c51a' : part.removed ? '#ff4d4f' : '';
     const background = part.added ? '#f6ffec' : part.removed ? '#fff2f0' : 'none';
     const decoration = part.removed ? 'line-through' : 'none';
     let span = document.createElement('span');
@@ -72,12 +72,12 @@ converse.plugins.add('converse-correctview', {
       const crr_input = crrform.querySelector('.crr-msg');
 
       crr_input.value = msg_text;
+      display_input.innerHTML = "" // Remove previous display input
       display_input.appendChild(diffText(msg_text, msg_text));
 
       crr_input.addEventListener('input', (ev) => {
         display_input.replaceChildren(diffText(msg_text, ev.target.value));
       })
-
 
       crrform.style.display = 'inline-block';
     }
@@ -98,30 +98,12 @@ converse.plugins.add('converse-correctview', {
       return buttons;
     }
 
-    function extractAllLocalMatch(str, regex) {
-      const temp_str = str;
-      const matchs = [];
-      let begin = 0, end = 0, match_str = 0;
-      let match = temp_str.match(regex);
-      console.log(temp_str);
-      while (match) {
-        begin = match.index;
-        end = begin + match[0].length;
-        match_str = match[1];
-        matchs.push({ begin, end, match_str });
-
-        // Match remain substring
-        match = temp_str.slice(end).match(regex)
-      }
-      return matchs
-    }
-
-
     function transformCrrMsg(richText, options) {
-      
       if (!richText.is_corrected) return;
-      var parser = new DOMParser();
-      richText.addTemplateResult(0, richText.length, html`${parser.parseFromString(richText.toString(), 'text/html').body}`);
+
+      const langex_crrmsg = document.createElement("langex-crrmsg")
+      langex_crrmsg.innerHTML = richText.toString()
+      richText.addTemplateResult(0, richText.length, html`${langex_crrmsg}`);
     }
 
     api.listen.on('getMessageActionButtons', addCorrectionOptions);
