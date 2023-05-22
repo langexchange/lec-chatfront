@@ -41,6 +41,8 @@ export default class MessageBody extends CustomElement {
     render () {
         const callback = () => this.model.collection?.trigger('rendered', this.model);
         const offset = 0;
+
+        
         const options = {
             'media_urls': this.model.get('media_urls'),
             'mentions': this.model.get('references'),
@@ -50,10 +52,11 @@ export default class MessageBody extends CustomElement {
             'render_styling': !this.model.get('is_unstyled') && api.settings.get('allow_message_styling'),
             'show_me_message': true,
             'is_corrected': this.model.get('is_corrected'),
-            'is_audiobot': this.model.get('is_audiobot'),
+            'is_pronunc_assess': this.model.get('is_pronunc_assess'),
+            'is_onboard': this.model.get('is_onboard'),
+            'is_langexbot': this.model.get('is_langexbot'),
             'hide_media_urls': true,
         }
-
         if (this.hide_url_previews === "false") {
             options.embed_audio = true;
             options.embed_videos = true;
