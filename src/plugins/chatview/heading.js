@@ -86,18 +86,18 @@ export default class ChatHeading extends CustomElement {
             }
         ];
 
-        // Add button to show the modal to set schedule meeting
-        if (true) {
-            buttons.push({
-                'a_class': 'show-modal-set-schedule-button',
-                'handler': ev => this.showScheduleModal(ev),
-                'i18n_text': __('Schedule'),
-                'i18n_title': __('Set schedule meeting'),
-                'icon_class': 'fa-calendar',
-                'name': 'schedule',
-                'standalone': api.settings.get('view_mode') === 'overlayed'
-            });
-        }
+        // // Add button to show the modal to set schedule meeting
+        // if (true) {
+        //     buttons.push({
+        //         'a_class': 'show-modal-set-schedule-button',
+        //         'handler': ev => this.showScheduleModal(ev),
+        //         'i18n_text': __('Schedule'),
+        //         'i18n_title': __('Set schedule meeting'),
+        //         'icon_class': 'fa-calendar',
+        //         'name': 'schedule',
+        //         'standalone': api.settings.get('view_mode') === 'overlayed'
+        //     });
+        // }
 
         if (!api.settings.get('singleton')) {
             buttons.push({

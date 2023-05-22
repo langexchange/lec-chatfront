@@ -30,16 +30,18 @@ export default (o) => {
         </div>
         ${o.status ? html`<p class="chat-head__desc">${o.status}</p>` : ''}
         <div class="schedule-container d-flex align-items-center w-100 justify-content-between px-3 py-2">
-            <div class="d-flex align-items-center">
-                <converse-icon size="28px" class="fa fa-calendar"></converse-icon>
-                <div class="content text-dark font-weight-normal ml-2">
-                    <strong class="text-dark">Nguyen Van A</strong> đã đặt lịch hẹn với bạn vào <strong class="text-info">Thứ 2, 12/10/2020</strong> lúc <strong class="text-info">10:00</strong>
-                </div>
-            </div>
-            <div class="actions">
-                <button class="btn btn-success btn-sm">Đồng ý</button>
-                <button class="btn btn-secondary btn-sm">Lần tới</button>
-            </div>
+            
         </div>
     `;
+    // Schedule
+    // <div class="d-flex align-items-center">
+    //             <converse-icon size="28px" class="fa fa-calendar"></converse-icon>
+    //             <div class="content text-dark font-weight-normal ml-2">
+    //                 <strong class="text-dark">Nguyen Van A</strong> đã đặt lịch hẹn với bạn vào <strong class="text-info">Thứ 2, 12/10/2020</strong> lúc <strong class="text-info">10:00</strong>
+    //             </div>
+    //         </div>
+    //         <div class="actions">
+    //             <button class="btn btn-success btn-sm">Đồng ý</button>
+    //             <button class="btn btn-secondary btn-sm">Lần tới</button>
+    //         </div>
 }
