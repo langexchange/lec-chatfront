@@ -20,6 +20,26 @@ g {
   background-color: #f6ffec;
 }
 
-langex-chatbotmsg p {
-
+langex-chatbotmsg {
+  display: flex;
+  flex-direction: column;
 }
+
+langex-chatbot-para:not(:last-child) {
+  margin-bottom: 1em;
+}
+
+langex-chatbot-para score{
+  display: inline-block;
+  padding: 0 10px;
+  color: white;
+  font-weight: 700;
+  border-radius: 5px;
+}
+
+
+assess-language {
+  display: inline-flex;
+  gap: 3px;
+}
+
