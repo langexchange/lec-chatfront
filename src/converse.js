@@ -41,7 +41,7 @@ import "./plugins/fullscreen/index.js";
 
 /* LANGEXCHANGE PLUGINS */
 import "./plugins/langex/correctview/index.js";
-import "./plugins/langex/audiocontainer/index.js";
+import "./plugins/langex/chatbot/index.js";
 
 _converse.CustomElement = CustomElement;
 

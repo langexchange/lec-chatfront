@@ -6,7 +6,7 @@ import { _converse, api, converse } from "@converse/headless/core.js";
 
 // const { u } = converse.env;
 
-import './styles/recording_tool.scss'
+import './styles/chatbot.scss'
 
 
 export default class RecordToolView extends ElementView {
