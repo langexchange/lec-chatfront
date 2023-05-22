@@ -34,7 +34,7 @@ export default (el) => {
                     `}
             </div>
             <div class="controlbox-panes">
-                <img class="logo" src="/images/logo.png" height="36px" style="margin: 12px;"/>
+                <img class="logo" src="images/logo.png" height="36px" style="margin: 12px;"/>
                 <div class="controlbox-pane">
                     ${o.connected
                         ? html`
