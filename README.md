@@ -32,14 +32,12 @@ cd mock
 python producer.py
 ```
 
-
-
-## Deploying
+## II. Deploying
 + Run `make langex` to build langex build file used for deploy.
 + SSH to copy `./dist` folder and `./nginx` folder onto deploy environment.
 + Build docker file and run.
 
 ## Todo:
-[] Remove unneccessary file from converse:
-  - [] Unneccessary plugins.
-  - [] Sufficient build files.
+[ ] Remove unneccessary file from converse:
+  - [ ] Unneccessary plugins.
+  - [ ] Sufficient build files.
