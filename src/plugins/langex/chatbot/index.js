@@ -75,17 +75,19 @@ converse.plugins.add('langex-audio-toolkit', {
 
     function transformAudioBotMsg(richText, options) {
       // Highlight command
-      const command_pattern = RegExp('(!([a-zA-Z_]+)(\\*[a-zA-Z_]+)*)', 'g');
       let msg = richText.toString();
       if (!richText.is_langexbot) {
-        let match;
-        while ((match = command_pattern.exec(msg)) !== null) {
+        const command_pattern = RegExp('^(!([a-zA-Z_]+)(\\*[a-zA-Z_]+)*)');
+        let match = command_pattern.exec(msg);
+        if(match !== null){
           const startIndex = match.index;
           const endIndex = match.index + match[0].length;
           richText.addTemplateResult(startIndex, endIndex, html`<langex-chatbot-command>${match[0]}</langex-chatbot-command>`);
         }
         return;
       }
+
+      const command_pattern = RegExp('(!([a-zA-Z_]+)(\\*[a-zA-Z_]+)*)', 'g');
       let replacement = "<langex-chatbot-command>$1</langex-chatbot-command>";
       msg = msg.replace(command_pattern, replacement);
 
