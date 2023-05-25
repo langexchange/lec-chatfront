@@ -23,15 +23,25 @@ services:
       langchat-db:
         condition: service_healthy
 
+
   lec-chatbot:
     image: narutosimaha/lec-chatbot
     command: ["python", "main.py", "-d"]
     environment: 
-      - MODEL_NAME=tiny.en
-      - BOT_PASSWORD=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODc4NzIxMTYsImlhdCI6MTY3Nzg2NzMxNywidW5hbWUiOiJjaGF0Ym90In0.P9Tha-h3BoRi6rZq3HW2oVTErRg8CETezwZKjy3gquA
+      - MODEL_NAME=small
+      - BOT_PASSWORD=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODc4NzIxMTYsImlhdCI6MTY3Nzg2NzMxNywiaWQiOiJjaGF0Ym90In0.9xbn9c9m9BJIPzimCgtPz-j29azywuczHlQXw7bSGRo
       - BOT_JID=chatbot@localhost
       - LANGEX_XMPP_HOSTNAME=lec-chatserver
       - LANGEX_XMPP_PORT=5222
+      - APP_BROKERS=kafka:9092
+      - LANGEX_CHATDB_STRING=postgresql://langteam:Aa1234@langchat-db:5432/langchat
+      - PLATFORM=DOCKER
+      - FILE_SERVICE=lec-chatgw
+      - MODE=development
+    volumes:
+      - model:/app/lec-chatbot/chatbot/models/whisper/model
+      - model_cache:/root/.cache/huggingface
+
 
   langchat-db:
     image: postgres:15.2
@@ -51,6 +61,7 @@ services:
       timeout: 5s
       retries: 5
 
+
   langchat-flyway:
     image: narutosimaha/flyway-langchat
     # command: -url=jdbc:postgresql://postgres:5432/ejabberd -user=ejabberd -password=ejabberd_password -connectRetries=60 migrate
@@ -61,6 +72,7 @@ services:
       - POSTGRES_PASSWORD=Aa1234
     depends_on:
       - langchat-db
+
 
   langgeneral-db:
     image: postgres:15.2
@@ -93,24 +105,28 @@ services:
       - langgeneral-db
   
 
-  lec-web:
-    image: narutosimaha/lec-web
+  lec-chatgw:
+    image: narutosimaha/lec-chatgw
     # command: ["/bin/sh", "-c", "nginx-debug -g 'daemon off;'"]
     command: nginx-debug -g 'daemon off;'
     environment: 
       - NGINX_HOST=localhost
-      - CHAT_WS_ENDPOINT=xmpp
       - CHAT_PORT=80
       - CHAT_HOST=lec-chathelper
       - CHAT_ENDPOINT=app
-      - CHAT_SERVER_ENDPOINT=chat/xmpp/ws
+      - CHAT_SERVER_ENDPOINT=chatws
+      - XMPP_WS_PORT=5280
+      - XMPP_WS_HOST=lec-chatserver
     ports:
       - "80:80"
       - "443:443"
+    depends_on:
+      - lec-chatserver
+      - lec-chathelper
 
 
   lec-chathelper:
-    image: narutosimaha/lec-chathelper-1
+    image: narutosimaha/lec-chathelper-1:latest
     command: /bin/sh -c "service celeryd start && httpd -D FOREGROUND"
     depends_on:
       - celery-broker
@@ -141,12 +157,9 @@ services:
       - APP_BROKERS=kafka:9092
       - CELERY_RESULT_BACKEND=redis://celery-broker:6379/0
       - CELERY_BROKER_URL=redis://celery-broker:6379/1
-      - XMPP_WS_PORT=5280
-      - XMPP_WS_HOST=lec-chatserver
-      - LOG_FILE_FROM_ROOT=chat/chatworker/logs/worker.log
+      - LOG_FILE_FROM_ROOT=logs/worker.log
     ports:
       - "8082:80"
-
 
     
   zookeeper:
@@ -176,27 +189,18 @@ services:
       KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
       KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
   
-  init-kafka:
-    image: confluentinc/cp-kafka:7.3.2
-    depends_on:
-      - kafka
-    entrypoint: [ '/bin/sh', '-c' ]
-    command: |
-      "
-      # blocks until kafka is reachable
-      kafka-topics --bootstrap-server broker:29092 --list
 
-      echo -e 'Creating kafka topics'
-      kafka-topics --bootstrap-server broker:29092 --create --if-not-exists --topic chathelper-friendstate --replication-factor 1 --partitions 1
-      kafka-topics --bootstrap-server broker:29092 --create --if-not-exists --topic chathelper-userupdate --replication-factor 1 --partitions 1
-
-      echo -e 'Successfully created the following topics:'
-      kafka-topics --bootstrap-server broker:29092 --list
-      "
   celery-broker:
     image: redis
     ports:
       - "6379:6379"
+
+networks:
+  default:
+    name: vutl
+
 volumes:
   pgdata:
   pgdata1:
+  model:
+  model_cache:

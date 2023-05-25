@@ -259,4 +259,4 @@ image:
 
 front: 
 	docker compose up -d --force-recreate
-	devserver
+	make devserver
