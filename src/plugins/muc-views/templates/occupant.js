@@ -50,7 +50,7 @@ export default (o, chat) => {
         <li class="occupant" id="${o.id}" title="${occupant_title(o)}">
             <div class="row no-gutters">
                 <div class="col-auto">
-                    <a class="show-msg-author-modal" @click=${(ev) => showOccupantModal(ev, o)}>
+                    <a class="show-msg-author-modal">
                         <converse-avatar
                             class="avatar chat-msg__avatar"
                             .data=${o.vcard?.attributes}

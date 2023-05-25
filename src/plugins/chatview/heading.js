@@ -75,15 +75,15 @@ export default class ChatHeading extends CustomElement {
              * @property { String } icon_class - What kind of CSS class to use for the icon
              * @property { String } name - The internal name of the button
              */
-            {
-                'a_class': 'show-user-details-modal',
-                'handler': ev => this.showUserDetailsModal(ev),
-                'i18n_text': __('Details'),
-                'i18n_title': __('See more information about this person'),
-                'icon_class': 'fa-id-card',
-                'name': 'details',
-                'standalone': api.settings.get('view_mode') === 'overlayed'
-            }
+            // {
+            //     'a_class': 'show-user-details-modal',
+            //     'handler': ev => this.showUserDetailsModal(ev),
+            //     'i18n_text': __('Details'),
+            //     'i18n_title': __('See more information about this person'),
+            //     'icon_class': 'fa-id-card',
+            //     'name': 'details',
+            //     'standalone': api.settings.get('view_mode') === 'overlayed'
+            // }
         ];
 
         // // Add button to show the modal to set schedule meeting

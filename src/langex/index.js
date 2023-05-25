@@ -31,7 +31,10 @@ converse.initialize({
       allow_non_roster_messaging: true,
       allow_message_corrections: false,
       render_media: true,
-
+      allow_logout: false,
+      show_client_info: false,
+      allow_adhoc_commands: false,
+      allow_contact_requests: false,
       // credentials_url: "http://localhost:8081/myapp/auth/credentials?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODc4NzIxMTYsImlhdCI6MTY3Nzg2NzMxNywidWlkIjoiN2U2ZDg2MDEtMDFhNy00NDAzLTllZWUtZmFjNzYwMWFhZTIwIn0.JVZeVxlXJ__X1JcEeVMOTyfmrPp11OFC5-_C8PzOx4A",
       auto_login: true,
       // jid: "hello@localhost",

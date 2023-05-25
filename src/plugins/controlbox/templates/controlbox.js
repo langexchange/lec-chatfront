@@ -36,17 +36,22 @@ export default (el) => {
             <div class="controlbox-panes">
                 <img class="logo" src="images/logo.png" height="36px" style="margin: 12px;"/>
                 <div class="controlbox-pane">
+                    
                     ${o.connected
-                        ? html`
-                            <converse-user-profile></converse-user-profile>
-                            <converse-headlines-feeds-list class="controlbox-section"></converse-headlines-feeds-list>
-                            <div id="chatrooms" class="controlbox-section"><converse-rooms-list></converse-rooms-list></div>
-                            ${ api.settings.get("authentication") === _converse.ANONYMOUS ? '' :
-                                html`<div id="converse-roster" class="controlbox-section"><converse-roster></converse-roster></div>`
-                            }`
-                        : whenNotConnected(o)
+                      ? html`
+                          <converse-user-profile></converse-user-profile>
+                          <converse-headlines-feeds-list class="controlbox-section"></converse-headlines-feeds-list>
+                          ${ api.settings.get("authentication") === _converse.ANONYMOUS ? '' :
+                              html`<div id="converse-roster" class="controlbox-section"><converse-roster></converse-roster></div>`
+                          }`
+                      : whenNotConnected(o)
                     }
                 </div>
             </div>
         </div>`
 };
+// enable chatroom
+// ${o.connected
+//   ? html`
+//       <div id="chatrooms" class="controlbox-section"><converse-rooms-list></converse-rooms-list></div>
+// }

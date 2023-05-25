@@ -27,7 +27,7 @@ export default (el, o) => {
             <a id="${o.msgid}"></a>
 
             ${ (o.should_show_avatar && !is_followup) ?
-                html`<a class="show-msg-author-modal" @click=${el.showUserModal}>
+                html`<a class="show-msg-author-modal">
                     <converse-avatar
                         class="avatar align-self-center"
                         .data=${el.model.vcard?.attributes}

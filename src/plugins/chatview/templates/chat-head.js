@@ -18,7 +18,7 @@ export default (o) => {
         <div class="chatbox-title ${o.status ? '' : "chatbox-title--no-desc"}">
             <div class="chatbox-title--row">
                 ${(!_converse.api.settings.get("singleton")) ? html`<converse-controlbox-navback jid="${o.jid}"></converse-controlbox-navback>` : ''}
-                ${(o.type !== _converse.HEADLINES_TYPE) ? html`<a class="show-msg-author-modal" @click=${o.showUserDetailsModal}>${avatar}</a>` : ''}
+                ${(o.type !== _converse.HEADLINES_TYPE) ? html`<a class="show-msg-author-modal">${avatar}</a>` : ''}
                 <div class="chatbox-title__text" title="${o.jid}">
                     ${(o.type !== _converse.HEADLINES_TYPE) ? html`<a class="user show-msg-author-modal" @click=${o.showUserDetailsModal}>${display_name}</a>` : display_name}
                 </div>

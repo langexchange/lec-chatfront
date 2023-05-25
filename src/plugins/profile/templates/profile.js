@@ -38,7 +38,7 @@ export default (el) => {
     return html`
         <div class="userinfo controlbox-padded">
             <div class="controlbox-section profile d-flex">
-                <a class="show-profile" href="#" @click=${el.showProfileModal}>
+                <a class="show-profile" href="#">
                     <converse-avatar class="avatar align-self-center"
                         .data=${el.model.vcard?.attributes}
                         nonce=${el.model.vcard?.get('vcard_updated')}

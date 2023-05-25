@@ -17,7 +17,6 @@ import { _converse, api, converse } from '@converse/headless/core';
 import {
     createOMEMOMessageStanza,
     encryptFile,
-    getOMEMOToolbarButton,
     getOutgoingMessageAttributes,
     handleEncryptedFiles,
     handleMessageSendError,
@@ -91,7 +90,6 @@ converse.plugins.add('converse-omemo', {
         api.listen.on('chatRoomViewInitialized', onChatInitialized);
 
         api.listen.on('connected', registerPEPPushHandler);
-        api.listen.on('getToolbarButtons', getOMEMOToolbarButton);
 
         api.listen.on('statusInitialized', initOMEMO);
         api.listen.on('addClientFeatures', () => api.disco.own.features.add(`${Strophe.NS.OMEMO_DEVICELIST}+notify`));
