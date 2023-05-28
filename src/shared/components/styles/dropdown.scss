@@ -1,16 +1,21 @@
-@import "bootstrap/scss/functions";
-@import "bootstrap/scss/variables";
-@import "bootstrap/scss/mixins";
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/mixins';
 
 .conversejs {
-    @import "bootstrap/scss/dropdown";
+    @import 'bootstrap/scss/dropdown';
     converse-dropdown {
-
+        .dropdown-menu {
+            left: -100% !important;
+            right: auto !important;
+            box-shadow: 0px 2px 8px 0 rgba(0, 0, 0, 0.2) !important;
+            border: none !important;
+        }
         &.dropup {
             &.dropup--left {
                 .dropdown-menu {
-                    right: 100%;
-                    left: auto;
+                    left: 100%;
+                    right: auto;
                 }
             }
         }
@@ -35,7 +40,8 @@
                 width: 1.25em;
                 margin-right: 0;
             }
-            &:active, &.selected {
+            &:active,
+            &.selected {
                 color: white !important;
                 background-color: var(--list-item-open-color);
                 .fa {

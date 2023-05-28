@@ -24,18 +24,19 @@ converse-chat-message-body {
 
     video {
         display: block;
-        max-height: 25em;
+        width: 200px;
+        max-height: 40px;
         @include media-breakpoint-down(sm) {
-            max-width: 95%;
+            max-width: 100%;
         }
         @include media-breakpoint-up(md) {
-            max-width: 70%;
+            max-width: 100%;
         }
         @include media-breakpoint-up(lg) {
-            max-width: 50%;
+            max-width: 100%;
         }
         @include media-breakpoint-up(xl) {
-            max-width: 40%;
+            max-width: 100%;
         }
     }
 }

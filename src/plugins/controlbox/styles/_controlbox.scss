@@ -1,8 +1,8 @@
-@import "bootstrap/scss/functions";
-@import "bootstrap/scss/variables";
-@import "bootstrap/scss/mixins";
-@import "shared/styles/_variables.scss";
-@import "shared/styles/_mixins.scss";
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/mixins';
+@import 'shared/styles/_variables.scss';
+@import 'shared/styles/_mixins.scss';
 
 .conversejs {
     .set-xmpp-status,
@@ -122,7 +122,8 @@
             }
         }
 
-        #converse-login-panel, #converse-register-panel {
+        #converse-login-panel,
+        #converse-register-panel {
             padding-top: 0;
             padding-bottom: 0;
         }
@@ -154,9 +155,9 @@
             padding: 0;
 
             .add-chatroom {
-                input[type=button],
-                input[type=submit],
-                input[type=text] {
+                input[type='button'],
+                input[type='submit'],
+                input[type='text'] {
                     width: 100%;
                 }
                 margin: 0;
@@ -165,7 +166,6 @@
         }
 
         .controlbox-section {
-
             .controlbox-heading {
                 font-family: var(--heading-font);
                 color: var(--controlbox-heading-color);
@@ -294,7 +294,7 @@
                 margin-left: 0;
                 margin-bottom: 0;
                 &.odd {
-                    background-color: #DCEAC5;
+                    background-color: #dceac5;
                 }
             }
         }
@@ -315,23 +315,35 @@
 .conversejs {
     converse-chats {
         &.converse-overlayed {
-
             display: flex;
             flex-direction: row-reverse;
+            bottom: 24px;
 
             .toggle-controlbox {
                 order: -2;
                 text-align: center;
-                background-color: var(--controlbox-head-color);
-                border-top-left-radius: var(--button-border-radius);
-                border-top-right-radius: var(--button-border-radius);
+                background-color: #ffffff;
+                transition: background-color 0.2s;
+                border-radius: 50%;
+                box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 3px 6px -4px rgba(0, 0, 0, 0.12),
+                    0 9px 28px 8px rgba(0, 0, 0, 0.05);
+                // border-top-left-radius: var(--button-border-radius);
+                // border-top-right-radius: var(--button-border-radius);
                 color: #0a0a0a;
                 float: right;
-                height: 100%;
+                height: 48px;
+                width: 48px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 margin: 0 var(--chat-gutter);
                 padding: 1em;
                 span {
                     color: var(--inverse-link-color);
+                }
+
+                &:hover {
+                    background-color: rgba(0, 0, 0, 0.06);
                 }
             }
 
@@ -342,6 +354,7 @@
                 .box-flyout {
                     min-width: var(--controlbox-width) !important;
                     width: var(--controlbox-width);
+                    bottom: -12px;
                 }
 
                 @media screen and (max-width: $mobile-portrait-length) {
@@ -365,7 +378,8 @@
                     }
                 }
 
-                #converse-register, #converse-login {
+                #converse-register,
+                #converse-login {
                     @include make-col(12);
                     padding-bottom: 0;
                 }
@@ -396,7 +410,7 @@
         }
 
         &.converse-embedded,
-        &.converse-fullscreen{
+        &.converse-fullscreen {
             .controlbox-panes {
                 border-right: 2px solid var(--panel-divider-color);
             }
@@ -483,7 +497,8 @@
                     }
                 }
 
-                #converse-register, #converse-login {
+                #converse-register,
+                #converse-login {
                     @include make-col-ready();
                     @include make-col(8);
                     @include make-col-offset(2);
@@ -500,11 +515,12 @@
                         @include make-col(6);
                         @include make-col-offset(3);
                     }
-                    .title, .instructions {
+                    .title,
+                    .instructions {
                         margin: 1em 0;
                     }
-                    input[type=submit],
-                    input[type=button] {
+                    input[type='submit'],
+                    input[type='button'] {
                         width: auto;
                     }
                 }
@@ -529,7 +545,6 @@
 }
 
 @include media-breakpoint-down(sm) {
-
     .conversejs {
         left: 0;
         right: 0;

@@ -91,7 +91,7 @@ converse.plugins.add('converse-correctview', {
             onCorrectionButtonClicked.apply(actionView, [ev]);
           },
           'button_class': 'chat-msg__action-correct',
-          'icon_class': 'fas fa-trash-alt',
+          'icon_class': 'fas fa-pencil-alt',
           'name': 'correct',
         });
       }

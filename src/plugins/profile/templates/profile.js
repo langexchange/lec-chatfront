@@ -42,7 +42,7 @@ export default (el) => {
                     <converse-avatar class="avatar align-self-center"
                         .data=${el.model.vcard?.attributes}
                         nonce=${el.model.vcard?.get('vcard_updated')}
-                        height="40" width="40"></converse-avatar>
+                        height="32" width="32"></converse-avatar>
                 </a>
                 <span class="username w-100 align-self-center">${fullname}</span>
                 ${show_settings_button  ? tplUserSettingsButton(el) : ''}

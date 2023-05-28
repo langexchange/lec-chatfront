@@ -1,9 +1,11 @@
 $mobile_landscape_height: 450px !default;
 $mobile_portrait_length: 480px !default;
 
-.conversejs, .conversejs-bg, #conversejs-bg, body.converse-fullscreen {
-
-    --avatar-border-radius: 10%;
+.conversejs,
+.conversejs-bg,
+#conversejs-bg,
+body.converse-fullscreen {
+    --avatar-border-radius: 50%;
     --message-avatar-width: 36px;
     --message-avatar-height: 36px;
 
@@ -17,9 +19,9 @@ $mobile_portrait_length: 480px !default;
     --roster-height: 194px;
 
     --button-border-radius: 5px;
-    --chatbox-border-radius: 4px;
+    --chatbox-border-radius: 8px;
 
-    --normal-font: "Helvetica", "Arial", sans-serif;
+    --normal-font: 'Helvetica', 'Arial', sans-serif;
     --heading-font: 'Muli', normal;
     --branding-font: 'Baumans', cursive;
 
@@ -46,8 +48,8 @@ $mobile_portrait_length: 480px !default;
     --mobile-chat-height: 400px;
 
     --overlayed-chat-head-height: 55px;
-    --overlayed-chat-height: 450px;
-    --overlayed-chat-width: 300px;
+    --overlayed-chat-height: 500px;
+    --overlayed-chat-width: 350px;
     --overlayed-chatbox-hover-height: 1em;
     --overlayed-emoji-picker-height: 200px;
     --overlayed-max-chat-textarea-height: 200px;

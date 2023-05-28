@@ -1,10 +1,9 @@
-@import "bootstrap/scss/functions";
-@import "bootstrap/scss/variables";
-@import "bootstrap/scss/mixins";
-@import "shared/styles/_variables.scss";
-@import "bootstrap/scss/media";
-@import "./chatbox.scss";
-
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/mixins';
+@import 'shared/styles/_variables.scss';
+@import 'bootstrap/scss/media';
+@import './chatbox.scss';
 
 /* ******************* Overlay and embedded styles *************************** */
 
@@ -23,23 +22,31 @@
             width: var(--overlayed-chat-width);
 
             .box-flyout {
+                bottom: -12px;
                 min-width: var(--overlayed-chat-width) !important;
                 width: var(--overlayed-chat-width);
             }
         }
     }
 
-    converse-chats.converse-overlayed  {
-        .chat-head, .box-flyout {
+    converse-chats.converse-overlayed {
+        .chat-head,
+        .box-flyout {
             border-top-left-radius: var(--chatbox-border-radius);
             border-top-right-radius: var(--chatbox-border-radius);
+            border-bottom-left-radius: var(--chatbox-border-radius);
+            border-bottom-right-radius: var(--chatbox-border-radius);
             @media screen and (max-height: $mobile-landscape-height) {
                 border-top-left-radius: 0;
                 border-top-right-radius: 0;
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
             }
             @media screen and (max-width: $mobile-portrait-length) {
                 border-top-left-radius: 0;
                 border-top-right-radius: 0;
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
             }
         }
 
@@ -84,13 +91,12 @@
     }
 }
 
-
 .conversejs {
     converse-chats.converse-embedded,
-    converse-chats.converse-fullscreen  {
+    converse-chats.converse-fullscreen {
         .flyout {
             border-radius: 0;
-            border:none;
+            border: none;
             bottom: 0;
         }
 
@@ -105,7 +111,7 @@
         }
     }
 
-    converse-chats.converse-fullscreen  {
+    converse-chats.converse-fullscreen {
         &:not(.converse-singleton) {
             .chatbox {
                 @include media-breakpoint-up(md) {
@@ -158,7 +164,7 @@
 /* ******************* Fullpage styles *************************** */
 
 .conversejs {
-    converse-chats.converse-fullscreen  {
+    converse-chats.converse-fullscreen {
         .chatbox-btn {
             font-size: var(--fullpage-chatbox-button-size);
             margin: 0 0.3em;
@@ -195,10 +201,9 @@
     }
 }
 
-
 @include media-breakpoint-down(sm) {
     .conversejs {
-        converse-chats:not(.converse-embedded)  {
+        converse-chats:not(.converse-embedded) {
             > .row {
                 flex-direction: row-reverse;
             }
