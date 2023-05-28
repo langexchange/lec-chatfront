@@ -58,11 +58,16 @@ export default class RecordToolView extends ElementView {
     const clipContainer = document.createElement("article");
     clipContainer.style.display = "flex";
     clipContainer.style.alignItems = "flex-end";
+    clipContainer.style.maxWidth = "270px";
     const audio = document.createElement('audio');
-    audio.style.maxHeight = '22px'
-    const deleteButton = document.createElement('button');
-    deleteButton.textContent = "Delete";
-    deleteButton.className = 'btn btn-danger btn-sm py-0 ml-2 mt-0 delete';
+    audio.style.maxHeight = '20px'
+    const deleteButton = document.createElement('a');
+    const icon = document.createElement('converse-icon');
+    icon.setAttribute("size", "1em");
+    icon.setAttribute("class", "fas fa-trash-alt");
+    icon.setAttribute("color", "#A8071A");
+    deleteButton.className = 'btn btn-link btn-sm rounded-circle ml-2 mt-0 delete text-danger delete-audio-btn pr-0 pl-0 pt-1 pb-0';
+    deleteButton.appendChild(icon);
     clipContainer.appendChild(audio);
     clipContainer.appendChild(deleteButton)
 
@@ -79,6 +84,8 @@ export default class RecordToolView extends ElementView {
       return;
     }
     this.removeAudioContainer();
+    const toggleBtn = this.querySelector(".toggle-recording");
+    toggleBtn.hidden = false;
   }
 
   initRecorder(stream){
@@ -142,12 +149,15 @@ export default class RecordToolView extends ElementView {
     if(!confirmation)
       return;
     this.recorder.stop()  //This will automatically records the file as defined in init function
+    const toggleBtn = this.querySelector(".toggle-recording");
   }
 
   recordingButtonClicked(){
     if(!navigator.mediaDevices.getUserMedia){
       onGetMediaError()
     }
+    const toggleBtn = this.querySelector(".toggle-recording");
+    toggleBtn.hidden = true;
 
     if(this.mediaStream && this.isRecording){
       this.recorder.pause()
