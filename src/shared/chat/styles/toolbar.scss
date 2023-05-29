@@ -144,9 +144,11 @@
             .toolbar-buttons-custom {
                 box-shadow: inset 0px -1px 0px #f0f0f0;
                 padding-bottom: 0.5rem;
+                display: flex;
+                align-items: flex-end;
             }
 
-            padding: 0 1rem;
+            padding: 0 0.5rem;
             border-top: var(--chatbox-message-input-border-top);
             color: var(--chat-toolbar-btn-color);
             background-color: var(--white);

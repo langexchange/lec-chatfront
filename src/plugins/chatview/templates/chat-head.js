@@ -11,7 +11,7 @@ export default (o) => {
             class="avatar chat-msg__avatar"
             .data=${o.model.vcard?.attributes}
             nonce=${o.model.vcard?.get('vcard_updated')}
-            height="40" width="40"></converse-avatar></span>`;
+            height="32" width="32"></converse-avatar></span>`;
     const display_name = o.model.getDisplayName();
 
     return html`
@@ -29,9 +29,9 @@ export default (o) => {
             </div>
         </div>
         ${o.status ? html`<p class="chat-head__desc">${o.status}</p>` : ''}
-        <div class="schedule-container d-flex align-items-center w-100 justify-content-between px-3 py-2">
-            
-        </div>
+        <!-- <div class="schedule-container d-flex align-items-center w-100 justify-content-between px-3 py-2"> -->
+        <!--      -->
+        <!-- </div> -->
     `;
     // Schedule
     // <div class="d-flex align-items-center">

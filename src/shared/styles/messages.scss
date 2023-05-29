@@ -5,8 +5,10 @@
 
     .message {
         .show-msg-author-modal {
+            font-size: 14px;
+            line-height: 2;
             align-self: flex-start; // Don't expand height to that of largest sibling
-                                    // https://stackoverflow.com/questions/27575779/prevent-a-flex-items-height-from-expanding-to-match-other-flex-items/40156422#40156422
+            // https://stackoverflow.com/questions/27575779/prevent-a-flex-items-height-from-expanding-to-match-other-flex-items/40156422#40156422
             color: var(--message-author-color) !important;
         }
 
@@ -46,6 +48,7 @@
             }
 
             .separator-text {
+                font-size: 12px;
                 background: var(--chat-background-color);
                 bottom: 1px; // Offset needed due to .separator border size
                 color: var(--separator-text-color);
@@ -125,6 +128,7 @@
                         display: flex;
                         flex-direction: row-reverse;
                         gap: 0.1rem;
+                        align-items: center;
                     }
                     .chat-msg__body {
                         flex-direction: row-reverse;
@@ -144,7 +148,7 @@
                 -webkit-animation: colorchange-chatmessage 1s;
             }
             &.correcting {
-                &.groupchat  {
+                &.groupchat {
                     background-color: var(--chatroom-correcting-color);
                 }
                 &:not(.groupchat) {
@@ -195,10 +199,11 @@
                 overflow-wrap: break-word;
                 .chat-msg__body--wrapper {
                     display: flex;
-                    background: white;
+                    background: #e4e6eb;
+                    font-size: 1rem;
                     width: fit-content;
                     padding: 12px 12px;
-                    border-radius: 0 8px 8px;
+                    border-radius: 0 12px 12px;
                 }
             }
 
@@ -280,6 +285,8 @@
                     font-family: var(--normal_font);
                 }
                 .chat-msg__time {
+                    font-size: 12px;
+                    font-weight: 400;
                     padding-left: 0.25em;
                     padding-right: 0.25em;
                     color: var(--text-color-lighten-15-percent);
@@ -382,9 +389,8 @@
     }
 }
 
-
 @media screen and (max-width: 767px) {
-    converse-chats:not(.converse-embedded)  {
+    converse-chats:not(.converse-embedded) {
         .message {
             &.chat-msg {
                 .chat-msg__author {

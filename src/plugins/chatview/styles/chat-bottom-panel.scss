@@ -17,7 +17,7 @@
                 align-items: top;
                 background: #fff;
                 .btn-container-custom {
-                    padding: 0.6rem 1rem 1rem 0;
+                    padding: 0.5rem 0.5rem 0.5rem 0;
                     .send-button-custome {
                         display: flex;
                         justify-content: center;
@@ -46,7 +46,7 @@
                 background-color: var(--chat-textarea-background-color);
                 border: 0;
                 margin: 0;
-                padding: 0.6rem 1rem 1rem;
+                padding: 0.5rem 0.5rem 0.5rem;
                 width: 100%;
                 @media screen and (max-height: $mobile-landscape-height) {
                     width: 100%;

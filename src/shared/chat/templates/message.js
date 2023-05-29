@@ -32,7 +32,7 @@ export default (el, o) => {
                         class="avatar align-self-center"
                         .data=${el.model.vcard?.attributes}
                         nonce=${el.model.vcard?.get('vcard_updated')}
-                        height="40" width="40"></converse-avatar>
+                        height="32" width="32"></converse-avatar>
                 </a>` : '' }
 
             <div class="chat-msg__content chat-msg__content--${o.sender} ${o.is_me_message ? 'chat-msg__content--action' : ''}">
